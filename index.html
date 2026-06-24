@@ -198,6 +198,14 @@
   #build02 .acard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);box-shadow:none}
   #build02 .acard .ic{background:rgba(127,220,232,.18);color:#bff0f7}
   #build02 .acard h4{color:#fff}#build02 .acard p{color:#bfe3ec}
+  .gw-poster{background:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 70px rgba(0,0,0,.4);overflow:hidden}
+  .poster{background:linear-gradient(160deg,#0f6e85,#0a3d4e);color:#eaf6fb;padding:56px 30px 60px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:15px;min-height:430px;justify-content:center}
+  .poster-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 15px;border-radius:999px;color:#cdeef5}
+  .poster-badge .d{width:8px;height:8px;border-radius:50%;background:#1bbf6b;box-shadow:0 0 0 4px rgba(27,191,107,.28);animation:pulse 2s infinite}
+  .poster-logo{font-family:var(--disp);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.5rem);color:#fff;letter-spacing:-.02em}
+  .poster p{max-width:46ch;font-size:14.5px;color:#bfe3ec;line-height:1.6}
+  .poster .openbtn{margin-top:6px;font-size:14.5px;padding:14px 26px;background:linear-gradient(135deg,#2bb7c9,#0a7a92)}
+  .poster-feats{margin-top:8px;font-size:12.5px;color:#8fc4d2;font-weight:600}
 
   /* =================================================================
      WORLD 5 - BESPOKE RANGE · vivid dark canvas, rainbow, the centrepiece
@@ -648,23 +656,19 @@
         </div>
       </div>
       <div class="toolbar">
-        <div class="toggle" data-target="gw">
-          <button class="active" data-mode="desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
-          <button data-mode="mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>Mobile</button>
-        </div>
         <a class="openbtn" id="gw-open" href="#" target="_blank" rel="noopener">Open live<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
     <p class="lead-intro rev">A live operator site with PartyOps booking wired in. This is the full picture: a sharp site and a real booking engine working together. If the preview won't load (some sites block embedding), the Open live button shows the real thing.</p>
     <div class="stage rev">
-      <div class="viewport" id="gw-viewport">
+      <div class="viewport gw-poster" id="gw-viewport">
         <div class="bar"><i></i><i></i><i></i><span class="url" id="gw-url">galwaybouncycastlesite.vercel.app</span></div>
-        <div class="scaler" id="gw-scaler">
-          <iframe id="gw-frame" title="Galway Bouncy Castles live site" loading="lazy" scrolling="yes"></iframe>
-          <div class="iframe-fallback" id="gw-fallback">
-            <div>This site blocks being shown inside other pages, which is normal and good for security.</div>
-            <a class="openbtn" id="gw-open2" href="#" target="_blank" rel="noopener">Open the live site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-          </div>
+        <div class="poster">
+          <span class="poster-badge"><span class="d"></span>Live &amp; taking bookings</span>
+          <div class="poster-logo">Galway Bouncy Castles</div>
+          <p>For security, the live site can't be shown inside another page. Open it in a new tab to click around the real thing, booking flow and all.</p>
+          <a class="openbtn" id="gw-open2" href="#" target="_blank" rel="noopener">Open the live site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <div class="poster-feats">Live availability · Stripe deposits · Built on PartyOps</div>
         </div>
       </div>
       <div class="anno">
@@ -1118,11 +1122,7 @@
     }
   }catch(e){}
 
-  var gwFrame=document.getElementById('gw-frame'), gwFallback=document.getElementById('gw-fallback');
-  gwFrame.src = GALWAY_URL;
-  var gwLoaded=false;
-  gwFrame.addEventListener('load',function(){ gwLoaded=true; });
-  setTimeout(function(){ if(!gwLoaded){ gwFallback.style.display='flex'; } },3500);
+  /* Build 02 (Galway) blocks iframe embedding, so it is presented as an on-brand poster with an Open-live CTA rather than a broken frame. */
 
   var DESKTOP_W=1280, MOBILE_W=390, RATIO_DESK=0.62, RATIO_MOB=1.05;
   function fit(scalerId, frameId, mode){
