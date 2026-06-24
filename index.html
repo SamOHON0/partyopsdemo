@@ -49,8 +49,35 @@
   /* =================================================================
      WORLD 1 - COVER · warm dawn, editorial, kinetic display
      ================================================================= */
-  .cover{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 80px;overflow:hidden;
+  .cover{min-height:100dvh;display:flex;align-items:center;padding:118px 0 72px;overflow:hidden;
     background:radial-gradient(1200px 700px at 82% -8%,#ffe3c6,transparent 60%),radial-gradient(900px 600px at -5% 110%,#ffd0c4,transparent 55%),linear-gradient(180deg,#fff6ec,#ffeede)}
+  .cover-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center;position:relative;z-index:2}
+  .cover-copy{position:relative}
+  .cover-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn-primary{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:15.5px;color:#fff;background:linear-gradient(135deg,#ff8a5c,#d2552f);border:none;border-radius:999px;padding:15px 26px;text-decoration:none;cursor:pointer;box-shadow:0 14px 30px rgba(210,85,47,.3);transition:transform .2s}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-primary svg{width:17px;height:17px}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:15.5px;color:#10203a;background:#fff;border:1px solid rgba(16,32,58,.14);border-radius:999px;padding:15px 24px;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s}
+  .btn-ghost:hover{transform:translateY(-2px);background:#fff6ec}
+  .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:440px}
+  .hero-phone{position:relative;width:250px;background:#0c0f1f;border-radius:38px;padding:11px;box-shadow:0 40px 80px rgba(16,32,58,.3),inset 0 0 0 2px rgba(255,255,255,.06);transform:rotate(-4deg);animation:float 8s ease-in-out infinite}
+  .hero-phone .scr{background:#fff;border-radius:28px;overflow:hidden;padding:18px 16px 22px}
+  .hp-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .hp-brand{font-family:var(--disp);font-weight:800;font-size:14px;color:#1e1b2e}.hp-brand b{color:#7c3aed}
+  .hp-tick{width:58px;height:58px;border-radius:50%;background:#e9fbf1;color:#1bbf6b;display:grid;place-items:center;margin:8px auto 14px}
+  .hp-tick svg{width:30px;height:30px}
+  .hp-h{font-family:var(--disp);font-weight:800;font-size:18px;text-align:center;color:#1e1b2e}
+  .hp-sub{font-size:12px;color:#756e88;text-align:center;margin-top:5px;line-height:1.4}
+  .hp-card{margin-top:16px;border:1px solid #e6e3ef;border-radius:13px;padding:12px 13px}
+  .hp-card .t{font-weight:700;font-size:13px;color:#1e1b2e}
+  .hp-card .m{font-size:11px;color:#756e88;margin-top:2px}
+  .hp-pay{margin-top:13px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;border-radius:11px;padding:12px;text-align:center;font-weight:700;font-size:13px}
+  .hero-chip{position:absolute;background:#fff;border-radius:13px;padding:10px 14px;box-shadow:0 16px 34px rgba(16,32,58,.18);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;z-index:3}
+  .hero-chip .dot{width:9px;height:9px;border-radius:50%}
+  .hero-chip.c1{top:7%;left:0;color:#0c3a5e;animation:float 7s ease-in-out infinite}
+  .hero-chip.c1 .dot{background:#1f8fb8}
+  .hero-chip.c2{bottom:9%;right:-2%;color:#6d28d9;animation:float 6s ease-in-out infinite .5s}
+  .hero-chip.c2 .dot{background:#7c3aed}
   .cover .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d2552f;margin-bottom:24px}
   .cover .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#ffc24b;box-shadow:0 0 0 5px rgba(255,194,75,.28)}
   .cover h1{font-size:clamp(2.9rem,8vw,6rem);font-weight:800;max-width:16ch;color:#10203a}
@@ -445,6 +472,38 @@
     .fstrip,.po-foot{grid-template-columns:1fr}
     .acard{min-width:100%}
   }
+  @media(max-width:900px){
+    .cover-grid{grid-template-columns:1fr;gap:30px}
+    .hero-visual{display:none}
+    .cover{padding:118px 0 64px}
+  }
+  @media(max-width:640px){
+    .wrap,.wrap-wide{padding:0 18px}
+    .why,.build,.bespoke,.partyops,.social,.pricing{padding:70px 0}
+    .next{padding:72px 0 84px}
+    .cover{padding:100px 0 56px}
+    .cover .sub{font-size:1.06rem}
+    .cover-cta{gap:10px}
+    .cover-cta .btn-primary,.cover-cta .btn-ghost{flex:1 1 auto;justify-content:center}
+    .build-head{gap:14px}
+    .toolbar{width:100%;flex-wrap:wrap}
+    .why .num{padding:24px 4px 8px}
+    .po-demo-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:1px}
+    .po-demo-tabs::-webkit-scrollbar{display:none}
+    .po-demo-tabs button{white-space:nowrap;flex:0 0 auto}
+    .po-win{border-top-left-radius:16px}
+    .po-screen{padding:18px 14px 22px}
+    .po-screens{min-height:380px}
+    .pw-pay-row{flex-direction:column}
+    .web{padding:28px 24px}
+    .web .price{font-size:2.8rem}
+    .pk-banner{flex-direction:column;align-items:stretch;padding:20px}
+    .pk-banner .nums{width:100%}
+    .pk-banner .nb{flex:1}
+    .timeline{gap:8px}
+    .tl{min-width:120px}
+    .cta{width:100%;justify-content:center}
+  }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
     .rev{opacity:1;transform:none}
@@ -473,14 +532,29 @@
 <!-- WORLD 1 - COVER -->
 <section class="cover">
   <div class="floaters"><span></span><span></span><span></span></div>
-  <div class="wrap inner">
-    <span class="eyebrow"><span class="dot"></span>Prepared for &lt;Operator Name&gt;</span>
-    <h1>A website that books <span class="hl">while you bounce.</span></h1>
-    <p class="sub">Real sites, not mockups. Scroll through builds we've actually shipped, then watch the booking engine close the deal. Every screen here is bespoke, and yours would be too.</p>
-    <div class="who">
-      <span class="pill">By <b>SquareTwo</b></span>
-      <span class="pill">Real <b>live builds</b> inside</span>
-      <span class="pill"><b>Live</b> in 2 weeks</span>
+  <div class="wrap cover-grid">
+    <div class="cover-copy">
+      <span class="eyebrow"><span class="dot"></span>Prepared for &lt;Operator Name&gt;</span>
+      <h1>A website that books <span class="hl">while you bounce.</span></h1>
+      <p class="sub">Real sites you can click right now, plus the booking engine that turns a maybe into a paid deposit.</p>
+      <div class="cover-cta">
+        <a class="btn-primary" href="#build01">See a live build<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn-ghost" href="#partyops">How booking works</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-chip c1"><span class="dot"></span>Sat 18th booked</div>
+      <div class="hero-phone">
+        <div class="scr">
+          <div class="hp-top"><span class="hp-brand">Party<b>Ops</b></span><span style="font-size:11px;color:#756e88">partyops.app</span></div>
+          <div class="hp-tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="hp-h">Booking confirmed</div>
+          <div class="hp-sub">Castle + Slide · Saturday 18th</div>
+          <div class="hp-card"><div class="t">Bouncy Castle + Slide</div><div class="m">10:00 - 16:00 · Rathfarnham</div></div>
+          <div class="hp-pay">€40 deposit paid</div>
+        </div>
+      </div>
+      <div class="hero-chip c2"><span class="dot"></span>Deposit paid</div>
     </div>
   </div>
   <div class="scrollcue"><span class="m"></span>Scroll</div>
@@ -570,7 +644,7 @@
         <div class="site-meta">
           <span class="tagchip live"><b>Live</b> right now</span>
           <span class="tagchip">First PartyOps operator</span>
-          <span class="tagchip" id="galway-domain">galwaybouncycastles.vercel.app</span>
+          <span class="tagchip" id="galway-domain">galwaybouncycastlesite.vercel.app</span>
         </div>
       </div>
       <div class="toolbar">
@@ -584,7 +658,7 @@
     <p class="lead-intro rev">A live operator site with PartyOps booking wired in. This is the full picture: a sharp site and a real booking engine working together. If the preview won't load (some sites block embedding), the Open live button shows the real thing.</p>
     <div class="stage rev">
       <div class="viewport" id="gw-viewport">
-        <div class="bar"><i></i><i></i><i></i><span class="url" id="gw-url">galwaybouncycastles.vercel.app</span></div>
+        <div class="bar"><i></i><i></i><i></i><span class="url" id="gw-url">galwaybouncycastlesite.vercel.app</span></div>
         <div class="scaler" id="gw-scaler">
           <iframe id="gw-frame" title="Galway Bouncy Castles live site" loading="lazy" scrolling="yes"></iframe>
           <div class="iframe-fallback" id="gw-fallback">
@@ -1026,7 +1100,7 @@
 <script>
 (function(){
   "use strict";
-  var GALWAY_URL = "https://galwaybouncycastles.vercel.app";
+  var GALWAY_URL = "https://galwaybouncycastlesite.vercel.app";
 
   ["gw-open","gw-open2"].forEach(function(id){ var a=document.getElementById(id); if(a) a.href=GALWAY_URL; });
   var gwClean = GALWAY_URL.replace(/^https?:\/\//,'');
@@ -1120,6 +1194,7 @@
       poScreens.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-screen')===t); });
     });
   });
+
   var panes=Array.prototype.slice.call(document.querySelectorAll('.pw-pane'));
   var dots=document.querySelectorAll('.pw-steps .s');
   var cur=0;
@@ -1132,6 +1207,7 @@
   document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){ goTo(cur+1); }); });
   document.querySelectorAll('[data-back]').forEach(function(b){ b.addEventListener('click',function(){ goTo(cur-1); }); });
   document.querySelectorAll('[data-reset]').forEach(function(b){ b.addEventListener('click',function(){ goTo(0); }); });
+
   document.querySelectorAll('.pw-items .pw-item').forEach(function(it){
     it.addEventListener('click',function(){
       document.querySelectorAll('.pw-items .pw-item').forEach(function(x){x.classList.remove('sel');});
